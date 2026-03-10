@@ -235,18 +235,23 @@ sentence-transformers
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+<img width="943" height="502" alt="image" src="https://github.com/user-attachments/assets/c6c41243-b4a9-4446-8b71-14c51056bffb" />
+
 
 ### Prediction Example
 
-![Prediction](screenshots/prediction.png)
+<img width="955" height="498" alt="image" src="https://github.com/user-attachments/assets/061c3331-49e1-4d6c-aee7-935342fc2cef" />
+
+<img width="960" height="502" alt="image" src="https://github.com/user-attachments/assets/65fa6e15-0b29-47c6-8e19-0386cf4ab60b" />
+
+
 
 ---
 # 🎥 Project Demo
 
 You can watch the **full working demo of this project** from the link below:
 
-➡ **[Watch Demo Video](demo/project-demo.mp4)**
+➡ **[Watch Demo Video](Demo.mp4)**
 
 The demo video includes:
 
