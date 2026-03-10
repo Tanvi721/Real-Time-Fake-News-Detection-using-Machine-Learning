@@ -1,10 +1,6 @@
 # 🧠 Real-Time Fake News Detection using Machine Learning
 
 <p align="center">
-<img src="screenshots/project-banner.png" width="850">
-</p>
-
-<p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange)
