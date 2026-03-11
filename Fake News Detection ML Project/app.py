@@ -29,18 +29,11 @@ st.write("Machine Learning + AI Similarity + Live News Search")
 @st.cache_data
 def load_data():
 
-    fake_url = "https://raw.githubusercontent.com/lutzhamel/fake-news/master/data/fake.csv"
-    true_url = "https://raw.githubusercontent.com/lutzhamel/fake-news/master/data/true.csv"
+    fake_url = "https://raw.githubusercontent.com/TrainingByPackt/Applied-Machine-Learning-with-Python/master/Datasets/fake_or_real_news.csv"
 
-    fake = pd.read_csv(fake_url)
-    true = pd.read_csv(true_url)
+    df = pd.read_csv(fake_url)
 
-    fake["label"] = 0
-    true["label"] = 1
-
-    df = pd.concat([fake, true])
-
-    df = df.sample(frac=1).reset_index(drop=True)
+    df = df.rename(columns={"label": "label", "text": "text"})
 
     df = df.sample(15000)
 
@@ -240,3 +233,4 @@ if st.button("Analyze News"):
             st.success("Similar news found online → Likely Real")
         else:
             st.warning("Low similarity with online news → Possibly Fake")
+
