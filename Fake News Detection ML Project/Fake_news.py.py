@@ -119,7 +119,7 @@ similarity_model = load_similarity_model()
 # NEWS API
 # -----------------------
 
-API_KEY = "c18e3edc9e7b43af94afe8ba2d59730f"
+API_KEY = st.secrets["NEWS_API_KEY"]
 
 
 def get_latest_news(query):
@@ -232,3 +232,4 @@ if st.button("Analyze News"):
             st.success("Similar news found online → Likely Real")
         else:
             st.warning("Low similarity with online news → Possibly Fake")
+
