@@ -23,7 +23,7 @@ st.write("Machine Learning + AI Similarity + Live News Search")
 
 
 # -----------------------
-# LOAD DATA (ONLINE)
+# LOAD DATA
 # -----------------------
 
 @st.cache_data
@@ -47,6 +47,10 @@ def load_data():
     return df
 
 
+# 🔹 Call the function
+df = load_data()
+
+
 # -----------------------
 # CLEAN TEXT
 # -----------------------
@@ -60,7 +64,15 @@ def clean_text(text):
     return text
 
 
-df["content"] = df["text"]
+# Detect correct text column
+if "text" in df.columns:
+    df["content"] = df["text"]
+elif "title" in df.columns:
+    df["content"] = df["title"]
+else:
+    st.error("Dataset does not contain required text column.")
+    st.stop()
+
 df["content"] = df["content"].apply(clean_text)
 
 
@@ -131,7 +143,6 @@ def get_latest_news(query):
     articles = []
 
     if "articles" in response:
-
         for a in response["articles"][:5]:
             articles.append(a["title"])
 
@@ -214,7 +225,6 @@ if st.button("Analyze News"):
             st.warning("No related news articles found")
 
         else:
-
             st.write("Top related headlines:")
 
             for a in articles:
@@ -230,5 +240,3 @@ if st.button("Analyze News"):
             st.success("Similar news found online → Likely Real")
         else:
             st.warning("Low similarity with online news → Possibly Fake")
-
-
