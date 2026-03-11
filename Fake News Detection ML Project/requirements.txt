@@ -1,6 +1,6 @@
-streamlit
+streamlit==1.33.0
 pandas
 scikit-learn
-sentence-transformers
 requests
+sentence-transformers==2.2.2
 torch
