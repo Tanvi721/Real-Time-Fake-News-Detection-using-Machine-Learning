@@ -60,7 +60,7 @@ def clean_text(text):
     return text
 
 
-df["content"] = df["title"] + " " + df["text"]
+df["content"] = df["text"]
 df["content"] = df["content"].apply(clean_text)
 
 
@@ -230,4 +230,5 @@ if st.button("Analyze News"):
             st.success("Similar news found online → Likely Real")
         else:
             st.warning("Low similarity with online news → Possibly Fake")
+
 
