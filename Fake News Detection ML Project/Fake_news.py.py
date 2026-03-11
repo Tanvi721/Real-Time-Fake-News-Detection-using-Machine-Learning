@@ -67,7 +67,7 @@ df["content"] = df["content"].apply(clean_text)
 
 
 # -----------------------
-# TF-IDF + MODEL TRAINING
+# MODEL TRAINING
 # -----------------------
 
 @st.cache_resource
@@ -95,7 +95,6 @@ def train_model():
 
     predictions = model.predict(X_test)
 
-
     accuracy = accuracy_score(y_test, predictions)
 
     return model, vectorizer, accuracy
@@ -120,7 +119,7 @@ similarity_model = load_similarity_model()
 # NEWS API
 # -----------------------
 
-API_KEY = "YOUR_NEWSAPI_KEY"
+API_KEY = "c18e3edc9e7b43af94afe8ba2d59730f"
 
 
 def get_latest_news(query):
@@ -136,7 +135,6 @@ def get_latest_news(query):
     if "articles" in response:
 
         for a in response["articles"][:5]:
-
             articles.append(a["title"])
 
     return articles
@@ -201,24 +199,20 @@ if st.button("Analyze News"):
 
         confidence = max(probability)
 
-
         st.write("### 🧠 ML Prediction")
 
         if prediction == 0:
-            st.error("Fake News")
+            st.error("🚨 Fake News")
         else:
-            st.success("Real News")
-
+            st.success("✅ Real News")
 
         st.write(f"Prediction Confidence: **{round(confidence*100,2)} %**")
-
 
         st.write("### 🌐 Searching Latest News")
 
         articles = get_latest_news(news)
 
         if len(articles) == 0:
-
             st.warning("No related news articles found")
 
         else:
@@ -228,18 +222,13 @@ if st.button("Analyze News"):
             for a in articles:
                 st.write("-", a)
 
-
         st.write("### 🔎 AI Similarity Check")
 
         similarity_score = check_similarity(news, articles)
 
         st.write("Similarity Score:", round(similarity_score, 2))
 
-
         if similarity_score > 0.6:
-
             st.success("Similar news found online → Likely Real")
-
         else:
-
             st.warning("Low similarity with online news → Possibly Fake")
